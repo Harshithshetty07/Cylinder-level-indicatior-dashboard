@@ -87,7 +87,7 @@ const HydraulicCylinderIndicator = () => {
           
           {/* Hydraulic Cylinder Visualization */}
           <div className="lg:col-span-2 ">
-            <div className="relative bg-gray-800/40 rounded-2xl p-6 border border-gray-700/30">
+            <div className="relative bg-gray-800/40 rounded-2xl p-5 border border-gray-700/30">
               
               {/* Cylinder Assembly */}
               <div className="relative mx-auto" style={{ width: '600px', height: '200px' }}>

@@ -3,7 +3,7 @@ import HydraulicCylinderIndicator from "./components/CylinderIndicator";
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
       <HydraulicCylinderIndicator />
     </div>
   );
