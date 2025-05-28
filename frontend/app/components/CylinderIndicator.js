@@ -86,21 +86,21 @@ const HydraulicCylinderIndicator = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           
           {/* Hydraulic Cylinder Visualization */}
-          <div className="lg:col-span-2 ">
+          <div className="lg:col-span-2">
             <div className="relative bg-gray-800/40 rounded-2xl p-6 border border-gray-700/30">
               
-              {/* Cylinder Assembly */}
-              <div className="relative mx-auto" style={{ width: '600px', height: '200px' }}>
+              {/* Cylinder Assembly - Now Vertical */}
+              <div className="relative mx-auto flex justify-center" style={{ width: '300px', height: '550px' }}>
                 
-                {/* Cylinder Base */}
-                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-32 h-24 bg-gradient-to-r from-gray-600 to-gray-700 rounded-l-xl border-4 border-gray-500 shadow-lg">
-                  <div className="absolute inset-2 bg-gradient-to-r from-gray-700 to-gray-600 rounded-l-lg"></div>
+                {/* Cylinder Base (Bottom) */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-32 bg-gradient-to-b from-gray-600 to-gray-700 rounded-b-xl border-4 border-gray-500 shadow-lg">
+                  <div className="absolute inset-2 bg-gradient-to-b from-gray-700 to-gray-600 rounded-b-lg"></div>
                   
                   {/* Hydraulic Ports */}
-                  <div className="absolute -top-3 left-4 w-6 h-6 bg-blue-600 rounded-full border-2 border-blue-400">
+                  <div className="absolute -left-3 top-4 w-6 h-6 bg-blue-600 rounded-full border-2 border-blue-400">
                     <div className="absolute inset-1 bg-blue-400 rounded-full"></div>
                   </div>
-                  <div className="absolute -bottom-3 left-4 w-6 h-6 bg-red-600 rounded-full border-2 border-red-400">
+                  <div className="absolute -right-3 top-4 w-6 h-6 bg-red-600 rounded-full border-2 border-red-400">
                     <div className="absolute inset-1 bg-red-400 rounded-full"></div>
                   </div>
                   
@@ -108,9 +108,9 @@ const HydraulicCylinderIndicator = () => {
                   {operationMode !== 'manual' && (
                     <>
                       <motion.div
-                        className="absolute -top-1 left-6 w-2 h-2 bg-blue-400 rounded-full"
+                        className="absolute -left-1 top-6 w-2 h-2 bg-blue-400 rounded-full"
                         animate={{
-                          x: [0, 20, 40, 60],
+                          y: [0, -20, -40, -60],
                           opacity: [0, 1, 1, 0]
                         }}
                         transition={{
@@ -120,9 +120,9 @@ const HydraulicCylinderIndicator = () => {
                         }}
                       />
                       <motion.div
-                        className="absolute -bottom-1 left-6 w-2 h-2 bg-red-400 rounded-full"
+                        className="absolute -right-1 top-6 w-2 h-2 bg-red-400 rounded-full"
                         animate={{
-                          x: [60, 40, 20, 0],
+                          y: [-60, -40, -20, 0],
                           opacity: [0, 1, 1, 0]
                         }}
                         transition={{
@@ -135,24 +135,24 @@ const HydraulicCylinderIndicator = () => {
                   )}
                 </div>
 
-                {/* Cylinder Barrel */}
+                {/* Cylinder Barrel - Vertical */}
                 <motion.div
-                  className="absolute left-24 top-1/2 transform -translate-y-1/2 h-16 bg-gradient-to-r from-gray-500 to-gray-600 border-4 border-gray-400 shadow-inner"
-                  animate={{ width: `${300 + extension * 2}px` }}
+                  className="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-16 bg-gradient-to-b from-gray-500 to-gray-600 border-4 border-gray-400 shadow-inner"
+                  animate={{ height: `${250 + extension * 1.5}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <div className="absolute inset-2 bg-gradient-to-r from-gray-600 to-gray-500 rounded-sm"></div>
+                  <div className="absolute inset-2 bg-gradient-to-b from-gray-600 to-gray-500 rounded-sm"></div>
                   
                   {/* Hydraulic Fluid */}
-                  <div className="absolute inset-3 bg-gradient-to-r from-blue-500/60 to-blue-600/60 rounded-sm overflow-hidden">
+                  <div className="absolute inset-3 bg-gradient-to-b from-blue-500/60 to-blue-600/60 rounded-sm overflow-hidden">
                     {/* Fluid particles */}
                     {operationMode !== 'manual' && fluidParticles.map((particle) => (
                       <motion.div
                         key={particle.id}
                         className="absolute w-1 h-1 bg-blue-300 rounded-full"
                         animate={{
-                          x: [0, extension * 2 + 250],
-                          y: [Math.random() * 40, Math.random() * 40],
+                          y: operationMode === 'extend' ? [extension * 1.5 + 200, 0] : [0, extension * 1.5 + 200],
+                          x: [Math.random() * 30, Math.random() * 30],
                           opacity: [0, 0.8, 0]
                         }}
                         transition={{
@@ -166,9 +166,9 @@ const HydraulicCylinderIndicator = () => {
                     
                     {/* Pressure waves */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-blue-300/40 to-blue-400/20"
+                      className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-blue-300/40 to-blue-400/20"
                       animate={{
-                        x: [-50, extension * 2 + 50],
+                        y: operationMode === 'extend' ? [-50, extension * 1.5 + 50] : [extension * 1.5 + 50, -50],
                         opacity: [0, 0.6, 0]
                       }}
                       transition={{
@@ -180,40 +180,40 @@ const HydraulicCylinderIndicator = () => {
                   </div>
                 </motion.div>
 
-                {/* Piston Rod */}
+                {/* Piston Rod - Vertical */}
                 <motion.div
-                  className="absolute top-1/2 transform -translate-y-1/2 h-8 bg-gradient-to-r from-gray-400 to-gray-500 border-2 border-gray-300 shadow-lg"
-                  style={{ left: '120px' }}
-                  animate={{ width: `${200 + extension * 2.5}px` }}
+                  className="absolute left-1/2 transform -translate-x-1/2 w-8 bg-gradient-to-b from-gray-400 to-gray-500 border-2 border-gray-300 shadow-lg"
+                  style={{ bottom: '120px' }}
+                  animate={{ height: `${150 + extension * 2}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <div className="absolute inset-1 bg-gradient-to-r from-gray-300 to-gray-400"></div>
+                  <div className="absolute inset-1 bg-gradient-to-b from-gray-300 to-gray-400"></div>
                 </motion.div>
 
-                {/* Piston Head */}
+                {/* Piston Head - Moves vertically */}
                 <motion.div
-                  className="absolute top-1/2 transform -translate-y-1/2 w-12 h-20 bg-gradient-to-r from-gray-600 to-gray-700 rounded-r-lg border-4 border-gray-500 shadow-lg"
-                  animate={{ left: `${310 + extension * 2.5}px` }}
+                  className="absolute left-1/2 transform -translate-x-1/2 w-20 h-12 bg-gradient-to-b from-gray-600 to-gray-700 rounded-t-lg border-4 border-gray-500 shadow-lg"
+                  animate={{ bottom: `${270 + extension * 2}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <div className="absolute inset-2 bg-gradient-to-r from-gray-700 to-gray-600 rounded-r-md"></div>
+                  <div className="absolute inset-2 bg-gradient-to-b from-gray-700 to-gray-600 rounded-t-md"></div>
                   
                   {/* Load attachment point */}
-                  <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-yellow-600 rounded-full border-2 border-yellow-400">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-yellow-600 rounded-full border-2 border-yellow-400">
                     <div className="absolute inset-1 bg-yellow-400 rounded-full"></div>
                   </div>
                 </motion.div>
 
-                {/* Extension measurement */}
-                <div className="absolute bottom-8 left-32 right-8 h-1 bg-gray-600 rounded-full">
+                {/* Extension measurement - Vertical scale */}
+                <div className="absolute left-8 top-8 bottom-8 w-1 bg-gray-600 rounded-full">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full"
-                    animate={{ width: `${extension}%` }}
+                    className="absolute bottom-0 w-full bg-gradient-to-t from-green-400 to-green-500 rounded-full"
+                    animate={{ height: `${extension}%` }}
                     transition={{ duration: 0.6 }}
                   />
                 </div>
-                <div className="absolute bottom-12 left-32 text-xs text-gray-400">0%</div>
-                <div className="absolute bottom-12 right-8 text-xs text-gray-400">100%</div>
+                <div className="absolute left-12 bottom-8 text-xs text-gray-400">0%</div>
+                <div className="absolute left-12 top-8 text-xs text-gray-400">100%</div>
 
                 {/* Operation Status Indicator */}
                 <AnimatePresence>
@@ -228,6 +228,18 @@ const HydraulicCylinderIndicator = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
+
+                {/* Load indicator */}
+                <motion.div
+                  className="absolute left-1/2 transform -translate-x-1/2 w-16 h-6 bg-orange-600 rounded border-2 border-orange-400"
+                  animate={{ bottom: `${290 + extension * 2}px` }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  <div className="absolute inset-1 bg-orange-400 rounded-sm"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-xs text-white font-bold">LOAD</span>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -284,8 +296,8 @@ const HydraulicCylinderIndicator = () => {
                   {[
                     { mode: 'manual', label: 'Manual', icon: '🎛️' },
                     { mode: 'auto', label: 'Auto', icon: '🤖' },
-                    { mode: 'extend', label: 'Extend', icon: '➡️' },
-                    { mode: 'retract', label: 'Retract', icon: '⬅️' }
+                    { mode: 'extend', label: 'Extend', icon: '⬆️' },
+                    { mode: 'retract', label: 'Retract', icon: '⬇️' }
                   ].map((option) => (
                     <motion.button
                       key={option.mode}
