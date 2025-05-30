@@ -79,7 +79,7 @@ const HydraulicCylinderIndicator = () => {
         
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Hydraulic Cylinder Control</h1>
+          <h1 className="text-4xl font-bold text-white mb-2">Hydraulic Cylinder Control monitoring</h1>
           <p className="text-gray-400">Real-time hydraulic system monitoring</p>
         </div>
 
