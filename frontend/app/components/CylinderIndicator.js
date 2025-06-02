@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const HydraulicCylinderIndicator = () => {
-  const [extension, setExtension] = useState(45);
+  const [extension, setExtension] = useState(60);
   const [pressure, setPressure] = useState(1250);
   const [isOperating, setIsOperating] = useState(false);
   const [operationMode, setOperationMode] = useState('manual'); // manual, auto, extend, retract
