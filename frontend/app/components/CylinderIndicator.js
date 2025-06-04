@@ -138,7 +138,7 @@ const HydraulicCylinderIndicator = () => {
                 {/* Cylinder Barrel - Vertical */}
                 <motion.div
                   className="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-16 bg-gradient-to-b from-gray-500 to-gray-600 border-4 border-gray-400 shadow-inner"
-                  animate={{ height: `${250 + extension * 1.5}px` }}
+                  animate={{ height: `${245 + extension * 1.5}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-2 bg-gradient-to-b from-gray-600 to-gray-500 rounded-sm"></div>
@@ -193,7 +193,7 @@ const HydraulicCylinderIndicator = () => {
                 {/* Piston Head - Moves vertically */}
                 <motion.div
                   className="absolute left-1/2 transform -translate-x-1/2 w-20 h-12 bg-gradient-to-b from-gray-600 to-gray-700 rounded-t-lg border-4 border-gray-500 shadow-lg"
-                  animate={{ bottom: `${270 + extension * 2}px` }}
+                  animate={{ bottom: `${290 + extension * 2}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-2 bg-gradient-to-b from-gray-700 to-gray-600 rounded-t-md"></div>
@@ -208,7 +208,7 @@ const HydraulicCylinderIndicator = () => {
                 <div className="absolute left-8 top-8 bottom-8 w-1 bg-gray-600 rounded-full">
                   <motion.div
                     className="absolute bottom-0 w-full bg-gradient-to-t from-green-400 to-green-500 rounded-full"
-                    animate={{ height: `${extension}%` }}
+                    animate={{ height: `${ extension}%` }}
                     transition={{ duration: 0.6 }}
                   />
                 </div>
@@ -232,7 +232,7 @@ const HydraulicCylinderIndicator = () => {
                 {/* Load indicator */}
                 <motion.div
                   className="absolute left-1/2 transform -translate-x-1/2 w-16 h-6 bg-orange-600 rounded border-2 border-orange-400"
-                  animate={{ bottom: `${290 + extension * 2}px` }}
+                  animate={{ bottom: `${300 + extension * 2}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-1 bg-orange-400 rounded-sm"></div>
