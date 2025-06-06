@@ -37,7 +37,7 @@ const HydraulicCylinderIndicator = () => {
     const basePressure = 1000;
     const pressureVariation = extension * 15 + Math.random() * 100;
     setPressure(basePressure + pressureVariation);
-    
+
     if (operationMode !== 'manual') {
       setFlowRate(2.5 + Math.random() * 1.5);
       setTemperature(68 + extension * 0.3 + Math.random() * 5);
@@ -76,26 +76,26 @@ const HydraulicCylinderIndicator = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex items-center justify-center p-4">
       <div className="bg-gray-800/60 backdrop-blur-lg rounded-3xl p-8 border border-gray-700/50 shadow-2xl max-w-6xl w-full">
-        
+
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Hydraulic Cylinder Control </h1>
+          <h1 className="text-4xl font-bold text-white mb-2">Hydraulic Cylinder Indicator </h1>
           <p className="text-gray-400">Real-time hydraulic system monitoring</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          
+
           {/* Hydraulic Cylinder Visualization */}
           <div className="lg:col-span-2">
             <div className="relative bg-gray-800/40 rounded-2xl p-6 border border-gray-700/30">
-              
+
               {/* Cylinder Assembly - Now Vertical */}
               <div className="relative mx-auto flex justify-center" style={{ width: '300px', height: '550px' }}>
-                
+
                 {/* Cylinder Base (Bottom) */}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-32 bg-gradient-to-b from-gray-600 to-gray-700 rounded-b-xl border-4 border-gray-500 shadow-lg">
                   <div className="absolute inset-2 bg-gradient-to-b from-gray-700 to-gray-600 rounded-b-lg"></div>
-                  
+
                   {/* Hydraulic Ports */}
                   <div className="absolute -left-3 top-4 w-6 h-6 bg-blue-600 rounded-full border-2 border-blue-400">
                     <div className="absolute inset-1 bg-blue-400 rounded-full"></div>
@@ -103,7 +103,7 @@ const HydraulicCylinderIndicator = () => {
                   <div className="absolute -right-3 top-4 w-6 h-6 bg-red-600 rounded-full border-2 border-red-400">
                     <div className="absolute inset-1 bg-red-400 rounded-full"></div>
                   </div>
-                  
+
                   {/* Fluid Flow Animation */}
                   {operationMode !== 'manual' && (
                     <>
@@ -142,7 +142,7 @@ const HydraulicCylinderIndicator = () => {
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-2 bg-gradient-to-b from-gray-600 to-gray-500 rounded-sm"></div>
-                  
+
                   {/* Hydraulic Fluid */}
                   <div className="absolute inset-3 bg-gradient-to-b from-blue-500/60 to-blue-600/60 rounded-sm overflow-hidden">
                     {/* Fluid particles */}
@@ -163,7 +163,7 @@ const HydraulicCylinderIndicator = () => {
                         }}
                       />
                     ))}
-                    
+
                     {/* Pressure waves */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-blue-300/40 to-blue-400/20"
@@ -183,7 +183,7 @@ const HydraulicCylinderIndicator = () => {
                 {/* Piston Rod - Vertical */}
                 <motion.div
                   className="absolute left-1/2 transform -translate-x-1/2 w-8 bg-gradient-to-b from-gray-400 to-gray-500 border-2 border-gray-300 shadow-lg"
-                  style={{ bottom: '120px' }}
+                  style={{ bottom: '110px' }}
                   animate={{ height: `${150 + extension * 2}px` }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
@@ -197,7 +197,7 @@ const HydraulicCylinderIndicator = () => {
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-2 bg-gradient-to-b from-gray-700 to-gray-600 rounded-t-md"></div>
-                  
+
                   {/* Load attachment point */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-yellow-600 rounded-full border-2 border-yellow-400">
                     <div className="absolute inset-1 bg-yellow-400 rounded-full"></div>
@@ -208,7 +208,7 @@ const HydraulicCylinderIndicator = () => {
                 <div className="absolute left-8 top-8 bottom-8 w-1 bg-gray-600 rounded-full">
                   <motion.div
                     className="absolute bottom-0 w-full bg-gradient-to-t from-green-400 to-green-500 rounded-full"
-                    animate={{ height: `${ extension}%` }}
+                    animate={{ height: `${extension}%` }}
                     transition={{ duration: 0.6 }}
                   />
                 </div>
@@ -246,11 +246,11 @@ const HydraulicCylinderIndicator = () => {
 
           {/* Control Panel */}
           <div className="space-y-6">
-            
+
             {/* Extension Control */}
             <div className="bg-gray-800/40 rounded-xl p-6 border border-gray-700/30">
               <h3 className="text-xl font-bold text-white mb-4">Extension Control</h3>
-              
+
               {/* Digital Display */}
               <div className="bg-black/50 rounded-lg p-4 mb-4 border border-gray-600">
                 <div className="text-center">
@@ -304,11 +304,10 @@ const HydraulicCylinderIndicator = () => {
                       onClick={() => setOperationMode(option.mode)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`px-3 py-2 rounded-lg font-medium text-sm transition-colors duration-200 ${
-                        operationMode === option.mode
-                          ? 'bg-blue-600 text-white border-2 border-blue-400'
-                          : 'bg-gray-700 text-gray-300 border-2 border-gray-600 hover:bg-gray-600'
-                      }`}
+                      className={`px-3 py-2 rounded-lg font-medium text-sm transition-colors duration-200 ${operationMode === option.mode
+                        ? 'bg-blue-600 text-white border-2 border-blue-400'
+                        : 'bg-gray-700 text-gray-300 border-2 border-gray-600 hover:bg-gray-600'
+                        }`}
                     >
                       {option.icon} {option.label}
                     </motion.button>
@@ -318,12 +317,12 @@ const HydraulicCylinderIndicator = () => {
             </div>
 
             {/* System Status */}
-            <div className="bg-gray-800/40 rounded-xl p-6 border border-gray-700/30">
+            {/* <div className="bg-gray-800/40 rounded-xl p-6 border border-gray-700/30">
               <h3 className="text-xl font-bold text-white mb-4">System Status</h3>
               
-              <div className="space-y-4">
-                {/* Pressure */}
-                <div className="flex justify-between items-center">
+              <div className="space-y-4"> */}
+            {/* Pressure */}
+            {/* <div className="flex justify-between items-center">
                   <span className="text-gray-300">Pressure:</span>
                   <div className="text-right">
                     <motion.span
@@ -339,18 +338,18 @@ const HydraulicCylinderIndicator = () => {
                       {getPressureStatus(pressure)}
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                {/* Flow Rate */}
-                <div className="flex justify-between items-center">
+            {/* Flow Rate */}
+            {/* <div className="flex justify-between items-center">
                   <span className="text-gray-300">Flow Rate:</span>
                   <span className="text-white font-mono">
                     {flowRate.toFixed(1)} GPM
                   </span>
-                </div>
+                </div> */}
 
-                {/* Temperature */}
-                <div className="flex justify-between items-center">
+            {/* Temperature */}
+            {/* <div className="flex justify-between items-center">
                   <span className="text-gray-300">Temperature:</span>
                   <span className={`font-mono ${
                     temperature > 80 ? 'text-red-400' : 
@@ -358,25 +357,25 @@ const HydraulicCylinderIndicator = () => {
                   }`}>
                     {temperature.toFixed(1)}°F
                   </span>
-                </div>
+                </div> */}
 
-                {/* Load */}
-                <div className="flex justify-between items-center">
+            {/* Load */}
+            {/* <div className="flex justify-between items-center">
                   <span className="text-gray-300">Load:</span>
                   <span className="text-white font-mono">
                     {(extension * 25 + 500).toFixed(0)} lbs
                   </span>
-                </div>
+                </div> */}
 
-                {/* Cycle Count */}
-                <div className="flex justify-between items-center">
+            {/* Cycle Count */}
+            {/* <div className="flex justify-between items-center">
                   <span className="text-gray-300">Cycles:</span>
                   <span className="text-white font-mono">
                     12,847
                   </span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Emergency Controls */}
             <div className="bg-red-900/20 rounded-xl p-4 border border-red-700/50">
