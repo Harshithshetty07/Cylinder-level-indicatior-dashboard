@@ -79,8 +79,8 @@ const HydraulicCylinderIndicator = () => {
 
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Hydraulic Cylinder Indicator </h1>
-          <p className="text-gray-400">Real--time hydraulic system monitoring</p>
+          <h1 className="text-4xl font-bold text-white mb-2">Hydraulic Cylinder Level Indicator </h1>
+          <p className="text-gray-400">Real-time hydraulic system monitoring</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
