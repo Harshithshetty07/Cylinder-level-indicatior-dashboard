@@ -32,6 +32,8 @@ const HydraulicCylinderIndicator = () => {
     return () => clearInterval(interval);
   }, [operationMode]);
 
+
+  
   // Update pressure and flow based on extension
   useEffect(() => {
     const basePressure = 1000;
