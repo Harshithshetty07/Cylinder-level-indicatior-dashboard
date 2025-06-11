@@ -10,6 +10,7 @@ const HydraulicCylinderIndicator = () => {
   const [flowRate, setFlowRate] = useState(0);
   const [temperature, setTemperature] = useState(68);
 
+  
   // Auto operation effect
   useEffect(() => {
     let interval;
