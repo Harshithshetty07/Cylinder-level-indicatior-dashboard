@@ -33,7 +33,7 @@ const HydraulicCylinderIndicator = () => {
   }, [operationMode]);
 
 
-  
+
   // Update pressure and flow based on extension
   useEffect(() => {
     const basePressure = 1000;
@@ -74,7 +74,6 @@ const HydraulicCylinderIndicator = () => {
     delay: Math.random() * 2,
     duration: 1 + Math.random() * 2,
   }));
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex items-center justify-center p-4">
       <div className="bg-gray-800/60 backdrop-blur-lg rounded-3xl p-8 border border-gray-700/50 shadow-2xl max-w-6xl w-full">
