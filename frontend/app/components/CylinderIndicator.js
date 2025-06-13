@@ -11,6 +11,7 @@ const HydraulicCylinderIndicator = () => {
   const [temperature, setTemperature] = useState(68);
 
   
+  
   // Auto operation effect
   useEffect(() => {
     let interval;
